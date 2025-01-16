@@ -27,13 +27,13 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_executable(joy_node src/joy_node.cpp)
-ament_target_dependencies(joy_node rclcpp sensor_msgs serial)
+add_executable(serial_eye_ear src/serial_eye_ear.cpp)
+ament_target_dependencies(serial_eye_ear rclcpp sensor_msgs serial)
 
-target_link_libraries(joy_node SDL2)
+target_link_libraries(serial_eye_ear SDL2)
 
 install(TARGETS
-  joy_node
+  serial_eye_ear
   DESTINATION lib/${PROJECT_NAME}
   )
 ament_package()
