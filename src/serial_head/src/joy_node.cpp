@@ -4,7 +4,7 @@ include "rclcpp/rclcpp.hpp"
 
 class JoyToSerialNode : public rclcpp::Node {
 public:
-    JoyToSerialNode() : Node("joy_to_serial_node"), serial_port_("/dev/ttyUSB0"), baud_rate_(9600), data_(0x20) {
+    JoyToSerialNode() : Node("joy_to_serial_node"), serial_port_("/dev/ttyACM0"), baud_rate_(9600), data_(0x20) {
         // 创建订阅者，订阅 /joy 话题
         joy_subscription_ = this->create_subscription<sensor_msgs::msg::Joy>(
             "/joy", 10, std::bind(&JoyToSerialNode::joyCallback, this, std::placeholders::_1));
