@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(serial REQUIRED)
 
 
 # 编译和链接其他依赖库
@@ -27,7 +28,7 @@ if(BUILD_TESTING)
 endif()
 
 add_executable(joy_node src/joy_node.cpp)
-ament_target_dependencies(joy_node rclcpp sensor_msgs)
+ament_target_dependencies(joy_node rclcpp sensor_msgs serial)
 
 target_link_libraries(joy_node SDL2)
 
